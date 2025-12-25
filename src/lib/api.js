@@ -36,13 +36,13 @@ export async function fetchEvents() {
 export async function fetchCommitteeMembers() {
   const res = await api.get("/committee-members");
 
-    const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
 
-  return res.data.map(m => ({
+  return res.data.map((m) => ({
     id: m.id,
     name: m.name,
     role: m.role,
-    img: `${API_BASE}${m.image_url}`,
+    img: m.image_url ? `${API_BASE}${m.image_url}` : "",
   }));
 }
 
