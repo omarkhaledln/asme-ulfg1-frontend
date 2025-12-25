@@ -20,18 +20,20 @@ export async function fetchProducts() {
   return items; 
 }
 
-
 export async function fetchEvents() {
   const res = await api.get("/events");
-   const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
-  return res.data.map(e => ({
+
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+
+  return res.data.map((e) => ({
     id: e.id,
     title: e.title,
     date: e.date,
     description: e.description,
-    img: `${API_BASE}${e.image_url}`,
+    img: e.image ? `${API_BASE}${e.image}` : "",
   }));
 }
+
 
 
 export async function fetchCommitteeMembers() {
