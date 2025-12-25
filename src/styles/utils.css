@@ -1,0 +1,43 @@
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0f13;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c232d;
+  border-radius: 10px;
+  border: 2px solid #0d0f13;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a313a;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a313a #0d0f13;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  padding: 0.7rem 1.2rem;
+  background:#3b82f6;
+  color: #062e2a;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  animation: fadeInOut 1.5s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(10px); }
+}

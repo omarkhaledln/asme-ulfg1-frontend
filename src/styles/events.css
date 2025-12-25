@@ -1,0 +1,202 @@
+/* =====================================================
+   COLOR SYSTEM (Consistent with About Page)
+===================================================== */
+:root {
+  --bg-main: #0b0f14;
+  --bg-card: #121826;
+  --border-card: #1f2937;
+
+  --text-main: #ffffff;
+  --text-muted: #c2c7d4;
+  --text-soft: #9aa3bd;
+
+  --accent-green: #22c55e;
+  --accent-blue: #3b82f6;
+  --accent-gold: #fbbf24;
+
+  --radius-lg: 1.4rem;
+  --radius-md: 1rem;
+}
+
+/* =====================================================
+   PAGE WRAPPER
+===================================================== */
+.events-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: var(--text-main);
+}
+
+/* =====================================================
+   HERO / INTRO
+===================================================== */
+.events-intro {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.events-hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.events-hero-text {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* =====================================================
+   HIGHLIGHTS
+===================================================== */
+.events-highlights {
+  max-width: 1100px;
+  margin: 0 auto 4.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.highlight-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.015)
+  );
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.6rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+}
+
+.highlight-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent-blue);
+}
+
+.highlight-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =====================================================
+   EVENTS LIST
+===================================================== */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* =====================================================
+   EVENT CARD
+===================================================== */
+.event-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  min-height: 260px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* =====================================================
+   EVENT IMAGE
+===================================================== */
+.event-img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  background: #000;
+}
+
+/* =====================================================
+   EVENT CONTENT
+===================================================== */
+.event-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* TITLE */
+.event-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+/* DATE */
+.event-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  margin-bottom: 1rem;
+}
+
+/* DESCRIPTION */
+.event-desc {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 900px) {
+  .event-card {
+    flex-direction: column;
+    padding: 1.4rem;
+  }
+
+  .event-img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .event-title,
+  .event-date,
+  .event-desc {
+    text-align: center;
+  }
+
+  .event-date {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .events-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .highlight-card {
+    padding: 1.4rem;
+  }
+}

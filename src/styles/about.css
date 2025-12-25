@@ -1,0 +1,230 @@
+/* =====================================================
+   COLOR SYSTEM (Professional & Engineering Style)
+===================================================== */
+:root {
+  --bg-main: #0b0f14;
+  --bg-card: #121826;
+  --border-card: #1f2937;
+
+  --text-main: #ffffff;
+  --text-muted: #c2c7d4;
+  --text-soft: #9aa3bd;
+
+  --accent-green: #22c55e;
+  --accent-blue: #3b82f6;
+  --accent-gold: #fbbf24;
+
+  --radius-lg: 1.4rem;
+  --radius-md: 1rem;
+}
+
+/* =====================================================
+   PAGE BASE
+===================================================== */
+.about-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: var(--text-main);
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+.about-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.03em;
+}
+
+.about-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+.h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin: 3.5rem 0 1.2rem;
+  position: relative;
+}
+
+.h2::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-green),
+    var(--accent-blue)
+  );
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
+
+/* =====================================================
+   TEXT
+===================================================== */
+.muted {
+  color: var(--text-muted);
+  max-width: 850px;
+  line-height: 1.75;
+}
+
+.mission-text {
+  border-left: 4px solid var(--accent-green);
+  padding-left: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+/* =====================================================
+   STATS
+===================================================== */
+.about-stats {
+  display: flex;
+  gap: 3rem;
+  margin: 2.8rem 0;
+  flex-wrap: wrap;
+}
+
+.about-stats p {
+  font-size: 1rem;
+  color: var(--text-soft);
+}
+
+.highlight {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #3b82f6;
+}
+
+/* =====================================================
+   LISTS
+===================================================== */
+.about-list {
+  margin-left: 1.3rem;
+  color: var(--text-muted);
+}
+
+.about-list li {
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+}
+
+.about-list strong {
+  color: var(--text-main);
+}
+
+/* =====================================================
+   COMMITTEE SECTION
+===================================================== */
+.committee-grid {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.8rem;
+}
+
+/* CARD */
+.committee-card {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.015)
+  );
+  border: 1px solid var(--border-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.committee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* IMAGE */
+.committee-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1a1f2b;
+  border: 3px solid var(--accent-blue);
+}
+
+/* NAME */
+.committee-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+/* ROLE */
+.committee-role {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+/* =====================================================
+   FAQ SECTION
+===================================================== */
+.faq-item {
+  margin-top: 1.4rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-main);
+  list-style: revert;
+}
+
+.faq-item p {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 1000px) {
+  .committee-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stats {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .committee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,255 @@
+/* =====================================================
+   COLOR SYSTEM
+===================================================== */
+:root {
+  --bg-card: #121826;
+  --border-card: #1f2937;
+
+  --text-main: #ffffff;
+  --text-muted: #c2c7d4;
+
+  --accent-blue: #3b82f6;
+  --accent-blue-soft: #60a5fa;
+
+  --radius-lg: 1.4rem;
+  --radius-md: 0.9rem;
+}
+
+/* =====================================================
+   PAGE WRAPPER
+===================================================== */
+.products-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+  color: var(--text-main);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+.products-hero {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.products-hero-title {
+  font-size: 3.4rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.7rem;
+  text-shadow: 0 0 18px rgba(59, 130, 246, 0.18);
+}
+
+.products-hero-text {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   HIGHLIGHTS (if present)
+===================================================== */
+.products-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.products-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+/* CART */
+.cart-link {
+  position: relative;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -12px;
+  right: -28px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue),
+    var(--accent-blue-soft)
+  );
+  color: #04122a;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.45);
+}
+
+/* =====================================================
+   SEARCH + SORT
+===================================================== */
+.products-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem; /* ⬅ important spacing fix */
+}
+
+.products-input,
+.products-select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: #0f1216;
+  border: 1px solid #29313a;
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+}
+
+.products-input:focus,
+.products-select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* =====================================================
+   PRODUCT GRID (FIXED)
+===================================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 0; /* prevent overlap */
+}
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px; /* ⬅ reserve space */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* IMAGE (LOCKED HEIGHT) */
+.product-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: #000;
+}
+
+/* =====================================================
+   CARD BODY
+===================================================== */
+.product-body {
+  padding: 1.3rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* TITLE */
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+/* PRICES */
+.product-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin-bottom: 0.25rem;
+}
+
+.product-price-members {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* =====================================================
+   ADD TO CART BUTTON
+===================================================== */
+.btn-add {
+  margin-top: auto;
+  padding: 0.9rem;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue),
+    var(--accent-blue-soft)
+  );
+  color: #04122a;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* =====================================================
+   SKELETON FIX (IMPORTANT)
+===================================================== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #1a1f2b,
+    #202636,
+    #1a1f2b
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  min-height: 360px;
+  border-radius: var(--radius-lg);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .products-hero-title {
+    font-size: 2.6rem;
+  }
+
+  .products-controls {
+    flex-direction: column;
+  }
+}

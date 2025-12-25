@@ -1,0 +1,26 @@
+footer.footer {
+  width: 100%;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 20px;
+}
+
+.footer-left,
+.footer-right {
+  white-space: nowrap;
+}
+
+.footer-link {
+  color: #6fffa8;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}

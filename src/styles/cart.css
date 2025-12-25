@@ -1,0 +1,218 @@
+/* =====================================================
+   COLOR SYSTEM
+===================================================== */
+:root {
+  --bg-card: #121826;
+  --border-card: #1f2937;
+
+  --text-main: #ffffff;
+  --text-muted: #c2c7d4;
+
+  --accent-blue: #3b82f6;
+  --accent-blue-soft: #60a5fa;
+
+  --radius-lg: 1.4rem;
+  --radius-md: 0.9rem;
+}
+
+/* =====================================================
+   PAGE
+===================================================== */
+.cart-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+  color: var(--text-main);
+}
+
+.cart-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   CART ITEMS
+===================================================== */
+.cart-items {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.cart-card {
+  display: flex;
+  gap: 1.4rem;
+  background: #0f1216;
+  border: 1px solid #1e2430;
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.cart-card-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 0.7rem;
+  object-fit: cover;
+}
+
+.cart-card-content {
+  flex: 1;
+}
+
+.cart-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.cart-remove {
+  background: transparent;
+  border: 1px solid #29313a;
+  color: var(--text-muted);
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.cart-remove:hover {
+  background: #1a1f25;
+}
+
+/* PRICES */
+.cart-prices p,
+.cart-subtotals p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+.cart-prices span {
+  color: var(--text-muted);
+}
+
+/* SUBTOTAL COLORS */
+.sub-members span {
+  color: #3b82f6;
+
+  font-weight: 700;
+}
+
+.sub-non span {
+  color: #60a5fa;
+
+  font-weight: 700;
+}
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+.cart-summary {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+}
+
+.cart-summary h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+.checkout-form {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.checkout-form h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.checkout-form input {
+  background: #0f1216;
+  border: 1px solid #29313a;
+  border-radius: var(--radius-md);
+  padding: 0.7rem 0.9rem;
+  color: var(--text-main);
+}
+
+.checkout-form input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* =====================================================
+   CHECKOUT BUTTON
+===================================================== */
+.checkout-btn {
+  width: 100%;
+  margin-top: 1.4rem;
+  padding: 0.9rem;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue),
+    var(--accent-blue-soft)
+  );
+  color: #04122a;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* =====================================================
+   STATUS
+===================================================== */
+.status {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.status.error {
+  color: #ef4444;
+}
+

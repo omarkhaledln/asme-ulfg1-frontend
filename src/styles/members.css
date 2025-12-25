@@ -1,0 +1,175 @@
+/* =====================================================
+   COLOR SYSTEM (BLUE ACCENT)
+===================================================== */
+:root {
+  --bg-main: #0b0f14;
+  --bg-card: #121826;
+  --border-card: #1f2937;
+
+  --text-main: #ffffff;
+  --text-muted: #c2c7d4;
+
+  --accent-blue: #3b82f6;
+  --accent-blue-soft: #60a5fa;
+
+  --radius-lg: 1.4rem;
+  --radius-md: 0.9rem;
+}
+
+/* =====================================================
+   PAGE
+===================================================== */
+.members-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: var(--text-main);
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+.members-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.members-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.members-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+.members-benefits h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.benefit-card h3 {
+  font-size: 1.25rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.6rem;
+}
+
+.benefit-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+.members-form {
+  max-width: 720px;
+  margin: 4rem auto 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* INPUTS */
+.members-input {
+  background: #0f1216;
+  border: 1px solid #29313a;
+  border-radius: var(--radius-md);
+  padding: 0.95rem 1rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.members-input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* BUTTON */
+.members-btn {
+  margin-top: 0.8rem;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue),
+    var(--accent-blue-soft)
+  );
+  color: #021024;
+  font-weight: 800;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.members-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.4);
+}
+
+/* STATUS */
+.members-error {
+  color: #ef4444;
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+.members-status {
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .members-title {
+    font-size: 2.6rem;
+  }
+
+  .members-form {
+    padding: 2rem;
+  }
+}

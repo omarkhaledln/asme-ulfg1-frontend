@@ -1,0 +1,71 @@
+:root {
+  --max: 1100px;
+  --bg: #0b0c10;
+  --card: #14161a;
+  --muted: #9aa3ab;
+  --text: #eaf0f6;
+  --brand: #5eead4;
+}
+
+/* RESET + BASE */
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* LAYOUT */
+.app-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.h1 {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.4rem);
+  margin: 1rem 0 1.5rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* UNIVERSAL FORM INPUTS */
+.input,
+.select,
+.textarea,
+form input,
+form textarea {
+  width: 100%;
+  background: #0f1216;
+  color: var(--text);
+  border: 1px solid #29313a;
+  border-radius: 0.6rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.status {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
