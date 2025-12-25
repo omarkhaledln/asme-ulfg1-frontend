@@ -5,7 +5,7 @@ export default function ProductCard({ item, onAddToCart }) {
   return (
     <div className="product-card">
       <img
-        src={`${API_BASE}${item.img}`}
+        src={`${item.img}`}
         alt={item.title}
         className="product-img"
       />
