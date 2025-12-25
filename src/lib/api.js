@@ -33,6 +33,7 @@ export async function fetchEvents() {
   }));
 }
 
+
 export async function fetchCommitteeMembers() {
   const res = await api.get("/committee-members");
 
@@ -42,7 +43,7 @@ export async function fetchCommitteeMembers() {
     id: m.id,
     name: m.name,
     role: m.role,
-    img: m.image_url ? `${API_BASE}${m.image_url}` : "",
+    img: m.image ? `${API_BASE}${m.image}` : "",
   }));
 }
 
