@@ -2,6 +2,8 @@ import { useState } from "react";
 import "../styles/cart.css";
 
 export default function CartPage({ cart, onRemoveFromCart }) {
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+
   const totalMembers = cart.reduce(
     (sum, item) => sum + Number(item.price_members) * item.qty,
     0
@@ -53,7 +55,7 @@ export default function CartPage({ cart, onRemoveFromCart }) {
     setStatus("Sending…");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/checkout", {
+      const res = await fetch(`${API_BASE}/api/checkout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -90,7 +92,7 @@ export default function CartPage({ cart, onRemoveFromCart }) {
             {cart.map((item) => (
               <div key={item.id} className="cart-card">
                 <img
-                  src={`http://127.0.0.1:8000${item.img}`}
+                  src={`${API_BASE}${item.img}`}
                   alt={item.title}
                   className="cart-card-img"
                 />

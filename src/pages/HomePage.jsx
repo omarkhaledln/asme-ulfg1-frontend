@@ -4,6 +4,8 @@ import { fetchProducts } from "../lib/api";
 import "../styles/hero.css";
 
 function ProductCard({ item, navigate }) {
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+
   return (
     <div
       className="home-product-card"
@@ -12,7 +14,7 @@ function ProductCard({ item, navigate }) {
       tabIndex="0"
     >
       <img
-        src={`http://127.0.0.1:8000${item.img}`}
+        src={`${API_BASE}${item.img}`}
         alt={item.title}
         className="product-image"
       />
@@ -22,6 +24,8 @@ function ProductCard({ item, navigate }) {
 }
 
 export default function HomePage() {
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 

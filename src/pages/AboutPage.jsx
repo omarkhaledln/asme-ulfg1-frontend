@@ -3,6 +3,8 @@ import { fetchCommitteeMembers } from "../lib/api";
 import { useEffect, useState } from "react";
 
 export default function AboutPage() {
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+
   const [committee, setCommittee] = useState([]);
 
   useEffect(() => {
@@ -96,7 +98,7 @@ export default function AboutPage() {
         {committee.map((member) => (
           <div key={member.id} className="committee-card">
             <img
-              src={`http://127.0.0.1:8000${member.img}`}
+              src={`${API_BASE}${member.img}`}
               alt={member.name}
               className="committee-avatar"
             />

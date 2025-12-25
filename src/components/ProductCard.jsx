@@ -1,10 +1,11 @@
 export default function ProductCard({ item, onAddToCart }) {
-  const API_URL = "http://127.0.0.1:8000";
+  // const API_URL = "http://127.0.0.1:8000";
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
 
   return (
     <div className="product-card">
       <img
-        src={`${API_URL}${item.img}`}
+        src={`${API_BASE}${item.img}`}
         alt={item.title}
         className="product-img"
       />

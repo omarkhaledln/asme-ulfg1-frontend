@@ -5,6 +5,8 @@ import { fetchProducts } from "../lib/api";
 import "../styles/products.css";
 
 export default function ProductsPage({ onAddToCart, cart }) {
+  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
