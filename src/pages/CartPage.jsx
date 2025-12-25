@@ -92,7 +92,7 @@ export default function CartPage({ cart, onRemoveFromCart }) {
             {cart.map((item) => (
               <div key={item.id} className="cart-card">
                 <img
-                  src={`${API_BASE}${item.img}`}
+                  src={`${item.img}`}
                   alt={item.title}
                   className="cart-card-img"
                 />

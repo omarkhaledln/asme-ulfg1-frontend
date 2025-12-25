@@ -14,7 +14,7 @@ function ProductCard({ item, navigate }) {
       tabIndex="0"
     >
       <img
-        src={`${API_BASE}${item.img}`}
+        src={`${item.img}`}
         alt={item.title}
         className="product-image"
       />

@@ -68,7 +68,7 @@ export default function EventsPage() {
           .map((ev) => (
             <div className="event-card" key={ev.id}>
               <img
-                src={`${API_URL}${ev.img}`}
+                src={`${ev.img}`}
                 className="event-img"
                 alt={ev.title}
               />

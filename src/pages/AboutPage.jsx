@@ -98,7 +98,7 @@ export default function AboutPage() {
         {committee.map((member) => (
           <div key={member.id} className="committee-card">
             <img
-              src={`${API_BASE}${member.img}`}
+              src={`${member.img}`}
               alt={member.name}
               className="committee-avatar"
             />
