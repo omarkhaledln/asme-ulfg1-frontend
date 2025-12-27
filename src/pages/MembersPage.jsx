@@ -1,5 +1,8 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "../styles/members.css";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Members() {
   const [form, setForm] = useState({
@@ -19,8 +22,39 @@ export default function Members() {
     if (!form.department) return "Please select your department.";
     if (!form.email.trim()) return "Please enter your email.";
     if (!form.phone.trim()) return "Please enter your phone number.";
-    if (!/^\d+$/.test(form.phone)) return "Phone number must contain only numbers.";
+    if (!/^\d+$/.test(form.phone))
+      return "Phone number must contain only numbers.";
     return "";
+  }
+
+  async function sendEmail() {
+    const serviceID = "service_n4hop0b";
+    const templateID = "template_ufvzvl8";
+    const publicKey = "m-3fn3LYyZavvCIgo";
+
+    const templateParams = {
+      name: form.name,
+      year: form.year,
+      department: form.department,
+      email: form.email,
+      phone: form.phone,
+      message: "New ASME Membership Application",
+    };
+
+    return emailjs.send(serviceID, templateID, templateParams, publicKey);
+  }
+
+  async function sendWhatsApp() {
+    const res = await fetch(`${API_URL}/send-whatsapp`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    if (!res.ok) throw new Error("WhatsApp failed");
   }
 
   async function onSubmit(e) {
@@ -36,6 +70,9 @@ export default function Members() {
     setStatus("Sending…");
 
     try {
+      await sendEmail();
+      await sendWhatsApp();
+
       setStatus("Application submitted successfully!");
       setForm({
         name: "",
@@ -51,7 +88,6 @@ export default function Members() {
 
   return (
     <section className="members-page">
-
       {/* INTRO */}
       <div className="members-intro">
         <h1 className="members-title">Join ASME</h1>
@@ -59,43 +95,6 @@ export default function Members() {
           Become part of a professional engineering community that supports
           learning, leadership, and real-world experience.
         </p>
-      </div>
-
-      {/* BENEFITS */}
-      <div className="members-benefits">
-        <h2>Why Join ASME?</h2>
-
-        <div className="benefits-grid">
-          <div className="benefit-card">
-            <h3>Professional Development</h3>
-            <p>Workshops and technical sessions led by industry professionals.</p>
-          </div>
-
-          <div className="benefit-card">
-            <h3>Networking Opportunities</h3>
-            <p>Connect with engineers, alumni, and companies through events.</p>
-          </div>
-
-          <div className="benefit-card">
-            <h3>Hands-On Experience</h3>
-            <p>Participate in real projects, challenges, and applied learning.</p>
-          </div>
-
-          <div className="benefit-card">
-            <h3>Leadership Skills</h3>
-            <p>Gain leadership experience by joining committees and teams.</p>
-          </div>
-
-          <div className="benefit-card">
-            <h3>Career Growth</h3>
-            <p>Enhance your CV with recognized professional activities.</p>
-          </div>
-
-          <div className="benefit-card">
-            <h3>Community & Support</h3>
-            <p>Be part of a motivated engineering student community.</p>
-          </div>
-        </div>
       </div>
 
       {/* FORM */}
@@ -128,6 +127,7 @@ export default function Members() {
           onChange={(e) => setForm({ ...form, department: e.target.value })}
         >
           <option value="">Department</option>
+          <option value="common">Common Trunk</option>
           <option value="mechanical">Mechanical</option>
           <option value="electrical">Electrical</option>
           <option value="civil">Civil</option>
