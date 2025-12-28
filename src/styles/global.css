@@ -12,6 +12,14 @@
 
 html, body, #root {
   height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -68,22 +76,4 @@ form textarea {
 .status {
   margin-top: 0.5rem;
   color: var(--muted);
-}
-
-/* Hide scrollbar but keep scrolling */
-
-/* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-}
-
-/* Firefox */
-* {
-  scrollbar-width: none;
-}
-
-/* IE & old Edge */
-* {
-  -ms-overflow-style: none;
 }
