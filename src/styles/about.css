@@ -26,7 +26,6 @@
   margin: 0 auto;
   padding: 4rem 1.5rem;
   color: var(--text-main);
-   height: 100vh;
   overflow-y: auto;
   scrollbar-width: none;
 }
