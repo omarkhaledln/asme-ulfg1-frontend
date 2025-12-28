@@ -12,7 +12,7 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <section className="events-page">
+    <section className="events-page page-scroll">
 
       {/* HERO / INTRO */}
       <div className="events-hero">

@@ -48,7 +48,7 @@ export default function ProductsPage({ onAddToCart, cart }) {
   }
 
   return (
-    <section className="products-page">
+    <section className="products-page page-scroll">
       {/* HERO */}
       {/* <div className="products-hero">
         <h1 className="products-hero-title">ASME Store</h1>

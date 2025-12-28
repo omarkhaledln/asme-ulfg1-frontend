@@ -86,8 +86,8 @@ export default function Members() {
     }
   }
 
-  return (
-    <section className="members-page">
+  return ( 
+    <section className="members-page page-scroll">
       {/* INTRO */}
       <div className="members-intro">
         <h1 className="members-title">Join ASME</h1>

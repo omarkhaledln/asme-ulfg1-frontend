@@ -244,3 +244,23 @@
     margin-top: 1.5rem;
   }
 }
+
+/* ===============================
+   HIDE SCROLLBAR (PAGE CONTAINER)
+   =============================== */
+
+/* Chrome, Edge, Safari */
+.page-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Firefox */
+.page-scroll {
+  scrollbar-width: none;
+}
+
+/* IE / old Edge */
+.page-scroll {
+  -ms-overflow-style: none;
+}

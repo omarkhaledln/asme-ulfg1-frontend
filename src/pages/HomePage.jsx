@@ -36,7 +36,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="home-page">
+    <main className="home-page page-scroll">
       {/* HERO */}
       <section className="home-hero-section">
         <img
