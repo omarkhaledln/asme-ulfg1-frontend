@@ -12,8 +12,9 @@
 
 html, body, #root {
   height: 100%;
-  overflow-y: scroll;
-  scrollbar-width: none;
+  /* overflow-y: scroll;
+  scrollbar-width: none; */
+  overflow: hidden; /* ⛔ stops browser scrollbar */
 }
 
 

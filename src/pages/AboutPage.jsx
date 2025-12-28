@@ -12,7 +12,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <section className="about-page page-scroll">
+    <section className="about-page">
 
       {/* HERO */}
       <div className="about-hero">
