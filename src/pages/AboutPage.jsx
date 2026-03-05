@@ -2,147 +2,202 @@ import "../styles/about.css";
 import { fetchCommitteeMembers } from "../lib/api";
 import { useEffect, useState } from "react";
 
-export default function AboutPage() {
-  const API_BASE = import.meta.env.VITE_API_URL.replace("/api", "");
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
+const API_BASE = API_URL.replace("/api", "");
 
+export default function AboutPage() {
   const [committee, setCommittee] = useState([]);
+  const [openFaq, setOpenFaq] = useState(null);
 
   useEffect(() => {
-    fetchCommitteeMembers().then(setCommittee);
+    fetchCommitteeMembers().then((data) =>
+      setCommittee(Array.isArray(data) ? data : [])
+    );
   }, []);
 
+  const faqs = [
+    {
+      q: "Who can join ASME ULFG1?",
+      a: "Any ULFG1 student! Whether you're here for the guest talks or just to meet new people, everyone is welcome.",
+    },
+    {
+      q: "Do I need to be a mechanical engineering student?",
+      a: "Not at all, we're open to all engineering departments at the faculty. Whether you're into civil, electrical, or any other department, you're more than welcome to join us.",
+    },
+    {
+      q: "How often do you meet?",
+      a: "We don't have a fixed daily schedule. We usually organize a few seminars or fun activities per semester. (check our Events page for the latest)",
+    },
+    {
+      q: "How can I get involved?",
+      a: "Just sign up on our Membership page or show up to our next event to say hello!",
+    },
+  ];
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   return (
-    <section className="about-page">
+    <main className="about-page">
 
-      {/* HERO */}
-      <div className="about-hero">
-        <h1 className="about-title">About ASME ULFG1</h1>
-        <p className="about-subtitle">
-          A student-led engineering community dedicated to excellence,
-          innovation, and professional growth.
-        </p>
+      {/* ── HERO ── */}
+      <section className="about-hero">
+        <div className="about-hero-inner">
+          <h1>About <span>ASME ULFG1</span></h1>
+          <p>We are the official student section of the American Society of Mechanical Engineers at the Faculty of Engineering — Branch 1, Lebanese University.</p>
+        </div>
+      </section>
+
+      {/* ── STATS BAR ── */}
+      <div className="about-stats-bar">
+        <div className="about-stat">
+          <div className="about-stat-num">2023</div>
+          <div className="about-stat-label">Founded</div>
+        </div>
+        <div className="about-stat">
+          <div className="about-stat-num">12</div>
+          <div className="about-stat-label">Committee Members</div>
+        </div>
+        <div className="about-stat">
+          <div className="about-stat-num">60+</div>
+          <div className="about-stat-label">Total Members</div>
+        </div>
       </div>
 
-      {/* INTRO */}
-      <p className="muted">
-        ASME ULFG1 is the official student section of the{" "}
-        <strong>American Society of Mechanical Engineers (ASME)</strong>,
-        one of the world’s largest professional engineering organizations.
-        We aim to connect engineering students with real-world experiences,
-        professional development, and a strong technical community.
-      </p>
-
-      {/* STATS */}
-      <div className="about-stats">
-        <p><strong className="highlight">2023</strong> Founded</p>
-        <p><strong className="highlight">12</strong> Committee Members</p>
-        <p><strong className="highlight">60+</strong> Active Members</p>
-      </div>
-
-      {/* ABOUT ASME */}
-      <h2 className="h2">About ASME</h2>
-      <p className="muted">
-        The <strong>American Society of Mechanical Engineers (ASME)</strong> is a
-        global organization dedicated to advancing engineering knowledge,
-        promoting innovation, and supporting engineers at every stage of their
-        careers. Founded in 1880, ASME sets internationally recognized standards
-        and provides engineers with opportunities for collaboration, education,
-        and leadership.
-      </p>
-
-      {/* MISSION */}
-      <h2 className="h2">Our Mission</h2>
-      <p className="muted mission-text">
-        Our mission is to empower engineering students through hands-on learning,
-        technical workshops, competitions, and collaborative projects. We strive
-        to bridge the gap between academic study and real-world engineering
-        practice while fostering leadership, creativity, and professionalism.
-      </p>
-
-      {/* VISION */}
-      <h2 className="h2">Our Vision</h2>
-      <p className="muted">
-        To become a leading student engineering chapter that produces skilled,
-        innovative, and responsible engineers capable of shaping the future of
-        technology and industry.
-      </p>
-
-      {/* VALUES */}
-      <h2 className="h2">Our Core Values</h2>
-      <ul className="about-list">
-        <li><strong>Excellence:</strong> Commitment to high engineering and ethical standards.</li>
-        <li><strong>Innovation:</strong> Encouraging creativity and problem-solving.</li>
-        <li><strong>Collaboration:</strong> Engineering thrives through teamwork.</li>
-        <li><strong>Integrity:</strong> Honesty, responsibility, and professionalism.</li>
-        <li><strong>Leadership:</strong> Developing confident future leaders.</li>
-      </ul>
-
-      {/* ACTIVITIES */}
-      <h2 className="h2">What We Do</h2>
-      <ul className="about-list">
-        <li>Technical workshops and hands-on training</li>
-        <li>Industry talks and professional networking events</li>
-        <li>Engineering competitions and applied projects</li>
-        <li>Student-led innovation and research initiatives</li>
-        <li>Career development and mentorship opportunities</li>
-      </ul>
-
-      {/* COMMITTEE */}
-      <h2 className="h2">Meet the Committee</h2>
-      <p className="muted">
-        Our committee is composed of dedicated students who lead, organize,
-        and manage ASME ULFG1 activities throughout the academic year.
-      </p>
-
-      <div className="committee-grid">
-        {committee.map((member) => (
-          <div key={member.id} className="committee-card">
-            <img
-              src={`${member.img}`}
-              alt={member.name}
-              className="committee-avatar"
-            />
-            <h3 className="committee-name">{member.name}</h3>
-            <p className="committee-role">{member.role}</p>
+      {/* ── ABOUT + MISSION / VISION ── */}
+      <section className="about-text-section">
+        <div className="about-text-grid">
+          <div className="about-text-left">
+            <div className="section-tag" />
+            <div className="section-title">About <span>ASME</span></div>
+            <p className="section-body">
+              A community of engineering students at ULFG1 who believe that
+              learning is better when we do it together. Founded in 2023, we
+              are the official student section of the American Society of
+              Mechanical Engineers (ASME) at our faculty. While ASME is a
+              massive global network, our local chapter is all about making the
+              student experience more engaging. We focus on bringing people
+              together through social events, guest talks, and activities that
+              make engineering feel a bit less like a textbook and more like a
+              community.
+            </p>
           </div>
-        ))}
-      </div>
+          <div className="about-text-right">
+            <div className="mv-block">
+              <div className="mv-label">Our Mission</div>
+              <div className="mv-text">
+                Our mission is to empower ULFG1 engineering students through
+                hands-on learning, technical workshops, competitions, and
+                collaborative projects. We strive to bridge the gap between
+                academic study and real-world engineering practice while
+                fostering leadership, creativity, and professionalism.
+              </div>
+            </div>
+            <div className="mv-block">
+              <div className="mv-label">Our Vision</div>
+              <div className="mv-text">
+                To be the heart of the engineering department — a place where
+                every student feels welcome to share ideas, have a laugh, and
+                build friendships that last beyond graduation.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* FAQ */}
-      <h2 className="h2">Frequently Asked Questions</h2>
+      {/* ── CORE VALUES ── */}
+      <section className="values-section">
+        <div className="section-tag section-tag-blue" />
+        <div className="section-title section-title-white">
+          Our Core <span>Values</span>
+        </div>
+        <div className="values-grid">
+          <div className="value-box">
+            <div className="value-name">🤝 Community</div>
+            <div className="value-desc">We're students first; we look out for one another.</div>
+          </div>
+          <div className="value-box">
+            <div className="value-name">🔍 Curiosity</div>
+            <div className="value-desc">Learning shouldn't always be for a grade.</div>
+          </div>
+          <div className="value-box">
+            <div className="value-name">🌍 Inclusivity</div>
+            <div className="value-desc">Whether you're a first-year or a senior, there's a seat for you here.</div>
+          </div>
+        </div>
+      </section>
 
-      <details className="faq-item">
-        <summary>Who can join ASME ULFG1?</summary>
-        <p>
-          ASME ULFG1 is open to engineering students who are interested in
-          professional growth, innovation, and leadership.
-        </p>
-      </details>
+      {/* ── WHAT WE DO ── */}
+      <section className="wedo-section">
+        <div className="section-tag" />
+        <div className="section-title">What We <span>Do</span></div>
+        <div className="wedo-grid">
+          <div className="wedo-box">
+            <div className="wedo-icon">🎤</div>
+            <div className="wedo-name">Student Seminars</div>
+            <div className="wedo-desc">Hearing from people who've been where we are — engineers and professionals sharing real stories and practical advice.</div>
+          </div>
+          <div className="wedo-box">
+            <div className="wedo-icon">🎉</div>
+            <div className="wedo-name">Social Activities</div>
+            <div className="wedo-desc">Events designed to help us de-stress and bond outside the classroom. Because engineering is more fun with friends.</div>
+          </div>
+          <div className="wedo-box">
+            <div className="wedo-icon">🔗</div>
+            <div className="wedo-name">Networking</div>
+            <div className="wedo-desc">Connecting you with peers and mentors in a relaxed environment that opens doors for your future career.</div>
+          </div>
+        </div>
+      </section>
 
-      <details className="faq-item">
-        <summary>Do I need to be a mechanical engineering student?</summary>
-        <p>
-          While ASME focuses on mechanical engineering, students from related
-          engineering disciplines are welcome to join.
-        </p>
-      </details>
+      {/* ── COMMITTEE ── */}
+      <section className="committee-section">
+        <div className="section-tag" />
+        <div className="section-title">Meet the <span>Committee</span></div>
+        <div className="committee-grid">
+          {committee.map((member) => (
+            <div key={member.id} className="committee-card">
+              <img
+                src={`${member.img}`}
+                alt={member.name}
+                className="committee-avatar"
+              />
+              <div className="committee-name">{member.name}</div>
+              <div className="committee-role">{member.role}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <details className="faq-item">
-        <summary>Are there member-only benefits?</summary>
-        <p>
-          Members gain access to exclusive workshops, networking events,
-          leadership roles, and professional development opportunities.
-        </p>
-      </details>
+      {/* ── FAQ ── */}
+      <section className="faq-section">
+        <div className="section-tag section-tag-blue" />
+        <div className="section-title section-title-white">
+          Frequently Asked <span>Questions</span>
+        </div>
+        <div className="faq-list">
+          {faqs.map((faq, index) => {
+            const isOpen = openFaq === index;
+            return (
+              <div
+                key={index}
+                className={`faq-item ${isOpen ? "open" : ""}`}
+                onClick={() => toggleFaq(index)}
+              >
+                <div className="faq-question">
+                  <span>{faq.q}</span>
+                  <span className="faq-arrow" />
+                </div>
+                {isOpen && (
+                  <p className="faq-answer">{faq.a}</p>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
-      <details className="faq-item">
-        <summary>How can I get involved?</summary>
-        <p>
-          You can get involved by attending our events, applying through the
-          Membership page, or contacting a committee member directly.
-        </p>
-      </details>
-
-    </section>
+    </main>
   );
 }

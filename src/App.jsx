@@ -16,6 +16,7 @@ import MembersPage from "./pages/MembersPage";
 
 
 import "./styles/main.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -53,9 +54,11 @@ export default function App() {
   return (
     <Router>
       <div className="app-shell">
+         <ScrollToTop /> 
         <Header cartCount={cartCount} />
         <main className="container">
           <Routes>
+
             <Route path="/" element={<HomePage />} />
             {/* <Route path="/" element={<Navigate to="/products" replace />} /> */}
             <Route

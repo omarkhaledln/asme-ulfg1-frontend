@@ -1,26 +1,74 @@
-footer.footer {
-  width: 100%;
-  padding: 20px;
-  background: #111;
-  color: #fff;
+/* ================================================
+   footer.css — ASME ULFG1 Footer Styles
+================================================ */
 
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  gap: 20px;
+.footer {
+  background: #0f0f1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.82rem;
+  color: #555;
 }
 
-.footer-left,
-.footer-right {
-  white-space: nowrap;
+/* ── LOGO ── */
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: #ffffff;
+  letter-spacing: 2px;
 }
 
-.footer-link {
-  color: #6fffa8;
+.footer-logo span {
+  color: #E8630A;
+}
+
+/* ── COPYRIGHT ── */
+.footer-copy {
+  color: #444;
+  font-size: 0.8rem;
+}
+
+/* ── LINKS ── */
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: #555;
   text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s;
 }
 
-.footer-link:hover {
-  text-decoration: underline;
+.footer-links a:hover {
+  color: #E8630A;
+}
+
+/* ================================================
+   RESPONSIVE — MOBILE (max 768px)
+================================================ */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .footer-links {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
 }

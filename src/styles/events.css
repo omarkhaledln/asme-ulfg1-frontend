@@ -1,215 +1,363 @@
-/* =====================================================
-   COLOR SYSTEM (Consistent with About Page)
-===================================================== */
-:root {
-  --bg-main: #0b0f14;
-  --bg-card: #121826;
-  --border-card: #1f2937;
+/* ================================================
+   events.css — ASME ULFG1 Events Page Styles
+================================================ */
 
-  --text-main: #ffffff;
-  --text-muted: #c2c7d4;
-  --text-soft: #9aa3bd;
-
-  --accent-green: #22c55e;
-  --accent-blue: #3b82f6;
-  --accent-gold: #fbbf24;
-
-  --radius-lg: 1.4rem;
-  --radius-md: 1rem;
-}
-
-/* =====================================================
-   PAGE WRAPPER
-===================================================== */
 .events-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  color: var(--text-main);
-  height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-.events-page::-webkit-scrollbar {
-  display: none;
+  font-family: 'Barlow', sans-serif;
+  background: #F4F4F4;
+  color: #1A1A2E;
 }
 
-/* =====================================================
-   HERO / INTRO
-===================================================== */
-.events-intro {
-  max-width: 900px;
-  margin: 0 auto 4rem;
+/* ── HERO INTRO ── */
+.events-hero {
+  background: #1A1A2E;
+  padding: 72px 48px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.events-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 40px,
+    rgba(232, 99, 10, 0.03) 40px,
+    rgba(232, 99, 10, 0.03) 41px
+  );
+}
+
+.events-hero::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: #E8630A;
+}
+
+.events-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.events-hero-tag {
+  display: inline-block;
+  background: #E8630A;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  margin-bottom: 18px;
+}
+
+.events-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.6rem;
+  letter-spacing: 3px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.events-hero h1 span {
+  color: #E8630A;
+}
+
+.events-hero p {
+  margin-top: 16px;
+  color: #aaa;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 540px;
+}
+
+/* ── INFO SECTION ── */
+.events-info-section {
+  background: #2E6DA4;
+  padding: 64px 48px;
+}
+
+.events-info-header {
+  max-width: 760px;
+  margin: 0 auto 48px;
   text-align: center;
 }
 
-.events-hero-title {
-  font-size: 3.2rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.6rem;
+.events-info-header p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.9;
+  font-weight: 300;
 }
 
-.events-hero-text {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-/* =====================================================
-   HIGHLIGHTS
-===================================================== */
-.events-highlights {
-  max-width: 1100px;
-  margin: 0 auto 4.5rem;
+.events-info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-.highlight-card {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.015)
-  );
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem 1.6rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.events-info-box {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 4px solid #E8630A;
+  padding: 36px 28px;
+  transition: background 0.25s, transform 0.25s;
 }
 
-.highlight-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+.events-info-box:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
 }
 
-.highlight-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--accent-blue);
+.events-info-icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
 }
 
-.highlight-card p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.6;
+.events-info-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 12px;
 }
 
-/* =====================================================
-   EVENTS LIST
-===================================================== */
+.events-info-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ── FILTER BAR ── */
+.events-filter-bar {
+  background: #ffffff;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #eee;
+}
+
+.events-filter-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #6B6B6B;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.events-filter-btn {
+  padding: 8px 22px;
+  border: 2px solid #ddd;
+  background: transparent;
+  color: #6B6B6B;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.events-filter-btn:hover {
+  border-color: #E8630A;
+  color: #E8630A;
+}
+
+.events-filter-btn.active {
+  background: #E8630A;
+  border-color: #E8630A;
+  color: #ffffff;
+}
+
+/* ── EVENTS LIST SECTION ── */
+.events-list-section {
+  padding: 56px 48px 80px;
+}
+
+.events-count {
+  font-size: 0.82rem;
+  color: #6B6B6B;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.events-count span {
+  color: #E8630A;
+}
+
+.events-empty {
+  text-align: center;
+  color: #6B6B6B;
+  font-size: 1rem;
+  margin-top: 48px;
+}
+
 .events-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 24px;
 }
 
-/* =====================================================
-   EVENT CARD
-===================================================== */
+/* ── EVENT CARD ── */
 .event-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 1.6rem;
+  background: #ffffff;
   display: flex;
-  gap: 2rem;
-  align-items: stretch;
-  min-height: 260px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  border-left: 4px solid transparent;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 
 .event-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  border-left-color: #E8630A;
 }
 
-/* =====================================================
-   EVENT IMAGE
-===================================================== */
-.event-img {
-  width: 300px;
+/* Poster */
+.event-poster {
+  width: 220px;
+  min-width: 220px;
+  background: #1A1A2E;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-poster img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-md);
-  flex-shrink: 0;
-  background: #000;
+  display: block;
 }
 
-/* =====================================================
-   EVENT CONTENT
-===================================================== */
-.event-content {
+.event-poster-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  background: linear-gradient(135deg, #1a2035, #0d1525);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  opacity: 0.4;
+}
+
+.event-year-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #E8630A;
+  color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+}
+
+/* Info */
+.event-info {
+  flex: 1;
+  padding: 28px 32px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* TITLE */
 .event-title {
-  font-size: 1.55rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  color: #1A1A2E;
+  line-height: 1;
 }
 
-/* DATE */
-.event-date {
-  display: inline-flex;
+.event-meta {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.95rem;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.event-date {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #E8630A;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.event-location {
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--accent-green);
-  margin-bottom: 1rem;
+  color: #6B6B6B;
 }
 
-/* DESCRIPTION */
 .event-desc {
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--text-muted);
+  font-size: 0.9rem;
+  color: #6B6B6B;
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 640px;
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-@media (max-width: 900px) {
-  .event-card {
-    flex-direction: column;
-    padding: 1.4rem;
-  }
+/* ================================================
+   RESPONSIVE — TABLET (max 1024px)
+================================================ */
+@media (max-width: 1024px) {
+  .events-hero { padding: 56px 32px 48px; }
+  .events-info-section { padding: 48px 32px; }
+  .events-info-grid { grid-template-columns: repeat(2, 1fr); }
+  .events-filter-bar { padding: 20px 32px; }
+  .events-list-section { padding: 48px 32px 64px; }
+}
 
-  .event-img {
+/* ================================================
+   RESPONSIVE — MOBILE (max 768px)
+================================================ */
+@media (max-width: 768px) {
+  .events-hero { padding: 48px 24px 40px; }
+  .events-hero h1 { font-size: 2.8rem; }
+
+  .events-info-section { padding: 40px 24px; }
+  .events-info-grid { grid-template-columns: 1fr; gap: 16px; }
+  .events-info-header { margin-bottom: 32px; }
+
+  .events-filter-bar { padding: 16px 24px; gap: 8px; }
+  .events-filter-btn { padding: 7px 16px; font-size: 0.8rem; }
+
+  .events-list-section { padding: 32px 24px 56px; }
+
+  /* Stack event card vertically on mobile */
+  .event-card { flex-direction: column; border-left: none; border-top: 4px solid transparent; }
+  .event-card:hover { border-top-color: #E8630A; border-left-color: transparent; }
+
+  .event-poster {
     width: 100%;
-    height: 220px;
+    min-width: unset;
+    height: 200px;
   }
 
-  .event-title,
-  .event-date,
-  .event-desc {
-    text-align: center;
-  }
-
-  .event-date {
-    justify-content: center;
-  }
+  .event-info { padding: 20px 20px; }
+  .event-title { font-size: 1.4rem; }
 }
 
-@media (max-width: 600px) {
-  .events-hero-title {
-    font-size: 2.4rem;
-  }
-
-  .highlight-card {
-    padding: 1.4rem;
-  }
+/* ================================================
+   RESPONSIVE — SMALL MOBILE (max 480px)
+================================================ */
+@media (max-width: 480px) {
+  .events-hero h1 { font-size: 2.2rem; }
+  .events-info-title { font-size: 1.2rem; }
+  .events-filter-label { display: none; }
 }
-
-/* ===============================
-   HIDE SCROLLBAR (PAGE CONTAINER)
-   =============================== */
-
-/* Chrome, Edge, Safari */
-
