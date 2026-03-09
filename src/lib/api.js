@@ -1,21 +1,12 @@
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
-const API_BASE = API_URL.replace("/api", "");
+const API_BASE = "https://asme-ulfg1-backend.xo.je";
 
 async function proxyGet(endpoint) {
-  const targetUrl = `${API_URL}${endpoint}`;
-  const res = await axios.get(`https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`);
+  const path = endpoint.replace(/^\//, "");
+  const res = await axios.get(`/.netlify/functions/api?path=${path}`);
   return res;
 }
-
-async function proxyPost(endpoint, data) {
-  const targetUrl = `${API_URL}${endpoint}`;
-  const res = await axios.get(`https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`);
-  return res;
-}
-
-export const api = axios.create({ baseURL: API_URL, timeout: 10000 });
 
 export async function fetchProducts() {
   const res = await proxyGet("/products");
@@ -51,7 +42,7 @@ export async function fetchCommitteeMembers() {
   }));
 }
 
-export function sendContact(payload) {
-  return axios.get(`https://api.allorigins.win/raw?url=${encodeURIComponent(`${API_URL}/contact`)}`)
-    .then((r) => r.data);
+export async function sendContact(payload) {
+  const res = await axios.post(`/.netlify/functions/api?path=contact`, payload);
+  return res.data;
 }
