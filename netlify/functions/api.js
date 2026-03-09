@@ -5,6 +5,17 @@ export async function handler(event) {
 
   try {
     const response = await fetch(url);
+    
+    if (!response.ok) {
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({ 
+          error: `Backend returned ${response.status}`,
+          url: url
+        }),
+      };
+    }
+
     const data = await response.json();
 
     return {
@@ -18,7 +29,8 @@ export async function handler(event) {
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message }),
+      headers: { "Access-Control-Allow-Origin": "*" },
+      body: JSON.stringify({ error: err.message, url: url }),
     };
   }
 }
